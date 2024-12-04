@@ -4,7 +4,7 @@
   <name>i6robotics_control</name>
   <version>0.0.0</version>
   <description>TODO: Package description</description>
-  <maintainer email="zptk97@gmail.com">bjh</maintainer>
+  <maintainer email="hyunji7674@gmail.com">hjpark</maintainer>
   <license>TODO: License declaration</license>
 
   <test_depend>ament_copyright</test_depend>

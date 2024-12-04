@@ -13,13 +13,16 @@ setup(
     ],
     install_requires=['setuptools'],
     zip_safe=True,
-    maintainer='bjh',
-    maintainer_email='zptk97@gmail.com',
+    maintainer='hjpark',
+    maintainer_email='hyunji7674@gmail.com',
     description='TODO: Package description',
     license='TODO: License declaration',
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+            'i6robotics_control_node = i6robotics_control.i6robotics_control_node:main',
+            'i6robotics_control_nav_action_node= i6robotics_control.i6robotics_control_navigation_action_node:main' 
+
         ],
     },
 )
