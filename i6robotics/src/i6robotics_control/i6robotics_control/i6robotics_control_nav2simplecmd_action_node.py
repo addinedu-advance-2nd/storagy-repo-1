@@ -89,7 +89,7 @@ i6robotics_control_msgs -NavOrder.action
 class StoragyNavToDestination(Node):
 
     def __init__(self):
-        super().__init__('i6robotics_control_nav_action_node')
+        super().__init__('i6robotics_control_simplecmd_node')
         
         self.is_first_time = True
         self.is_stop = False
