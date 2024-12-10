@@ -44,16 +44,16 @@ class StoragyNavToDestination(Node):
             goal_handle.publish_feedback(feedback_msg)
 
         print("42")
-        if done_flag == True:
-            goal_handle.succeed()
+        """if done_flag == True:
+            goal_handle.succeed()"""
         done_flag = False
         self.Nav2pose_node.send_goal(goal_handle.request.goal_pose, feedback_callback)
         print("44")
         i=0
-        while done_flag != True:
+        """while done_flag != True:
             if i%10 == 0:
                 print("wait")
-            i +=1
+            i +=1"""
 
         goal_handle.succeed()  # 종료
         result = NavOrder.Result()
