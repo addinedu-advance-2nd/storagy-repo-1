@@ -18,6 +18,8 @@ find_package(rosidl_default_generators REQUIRED)
 rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/CmdAndPoseVel.msg"
   "action/NavOrder.action"
+  "srv/NavOrderSrv.srv"
+  "msg/NavOrderFeedback.msg"
   DEPENDENCIES geometry_msgs 
 )
 
