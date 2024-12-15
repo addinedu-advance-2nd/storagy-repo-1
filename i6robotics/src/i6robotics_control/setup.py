@@ -23,7 +23,9 @@ setup(
             'i6robotics_control_node = i6robotics_control.i6robotics_control_node:main',
             'i6robotics_control_simplecmd_node= i6robotics_control.i6robotics_control_nav2simplecmd_action_node:main',
             'i6robotics_control_nav_action_node= i6robotics_control.i6robotics_control_navigation:main',
-            'nav_to_pose_action_client=i6robotics_control.i6robotics_control_navigation:main'
+            'nav_to_pose_action_client=i6robotics_control.i6robotics_control_navigation:main',
+            'i6robotics_control_nav_service_node=i6robotics_control.i6robotics_control_navigation_service:main',
+            'i6robotics_control_nav_feedback_node=i6robotics_control.i6robotics_control_navigation_service:main' 
         ],
     },
 )
