@@ -1,0 +1,2 @@
+geometry_msgs/PoseStamped current_pose
+float32 distance_remaining

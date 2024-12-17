@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
-project(i6robotics_control_msgs)
+project(guiding_services)
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
@@ -7,21 +7,14 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
-# uncomment the following section in order to fill in
-# further dependencies manually.
-# find_package(<dependency> REQUIRED)
-
-
-find_package(geometry_msgs REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
+find_package(rclpy REQUIRED)
+find_package(std_msgs REQUIRED)
 
+# 서비스 메시지 생성
 rosidl_generate_interfaces(${PROJECT_NAME}
-  "msg/CmdAndPoseVel.msg"
-  "action/NavOrder.action"
-  "action/Follow.action"
-  "srv/NavOrderSrv.srv"
-  "msg/NavOrderFeedback.msg"
-  DEPENDENCIES geometry_msgs 
+  "srv/SetGoalChoice.srv"
+  DEPENDENCIES std_msgs
 )
 
 if(BUILD_TESTING)
