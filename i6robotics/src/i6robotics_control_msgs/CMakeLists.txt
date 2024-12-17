@@ -20,6 +20,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "action/NavOrder.action"
   "action/Follow.action"
   "srv/NavOrderSrv.srv"
+  "srv/Order.srv"
   "msg/NavOrderFeedback.msg"
   DEPENDENCIES geometry_msgs 
 )
