@@ -2,10 +2,11 @@ import rclpy
 from rclpy.node import Node
 from rclpy.action import ActionClient
 from nav2_msgs.action import NavigateToPose
-from geometry_msgs.msg import PoseStamped, Pose
+from geometry_msgs.msg import PoseStamped, Pose, PoseWithCovarianceStamped
 from action_msgs.msg import GoalStatus
 from i6robotics_control_msgs.srv import Order
 from i6robotics_control_msgs.action import Follow
+from i6robotics_control_msgs.msg import NavOrderFeedback
 
 import threading
 import time
@@ -16,6 +17,14 @@ class MyActionClient(Node):
         # 각 액션 서버에게 요청을 보내는 Clients
         self.nav_to_pose_client = ActionClient(self, NavigateToPose, 'navigate_to_pose')
         self.follow_client = ActionClient(self, Follow, 'follow')
+        self.initial_pose_pub = self.create_publisher(PoseWithCovarianceStamped,
+                                                      'initialpose',
+                                                      10)
+        self.publisher = self.create_publisher(
+            NavOrderFeedback, #메시지 타입
+            '/i6robotics_navigation_feedback', #발행할 토픽
+            10
+        )
         
         # UI로부터 요청을 수락하는 Service server
         self.srv = self.create_service(Order, 'order', self.order_callback)
@@ -34,6 +43,14 @@ class MyActionClient(Node):
         self.current_pose.pose.position.z = 0.0
         self.current_pose.pose.orientation.z = 0.0
         self.current_pose.pose.orientation.w = 0.999
+
+        msg = PoseWithCovarianceStamped()
+        msg.pose.pose = self.initial_pose.pose
+        msg.header.frame_id = self.initial_pose.header.frame_id
+        msg.header.stamp = self.initial_pose.header.stamp
+        self.get_logger().info('Publishing Initial Pose')
+        self.initial_pose_pub.publish(msg)
+        
 
     # Service Server. 주행 명령 수신 서비스 서버
     def order_callback(self, request, response):
@@ -86,6 +103,17 @@ class MyActionClient(Node):
 
     def nav_to_pose_feedback_callback(self, feedback_msg):
         self.current_pose = feedback_msg.feedback.current_pose
+
+        msg = NavOrderFeedback() #Twist 타입의 메시지 정의
+        msg.current_pose = feedback_msg.feedback.current_pose
+        if feedback_msg.feedback.distance_remaining :
+            msg.distance_remaining = round(feedback_msg.feedback.distance_remaining, 2)
+        else:
+            msg.distance_remaining = feedback_msg.feedback.distance_remaining
+            
+        # 메시지 퍼블리시
+        self.publisher.publish(msg) 
+        
         # self.get_logger().info(f'Feedback: {feedback_msg.feedback}')
 
     def nav_to_pose_result_callback(self, future):
