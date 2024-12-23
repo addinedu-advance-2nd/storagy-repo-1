@@ -1,0 +1,31 @@
+running egg_info
+creating ../../build/i6robotics_data_processing/i6robotics_data_processing.egg-info
+writing ../../build/i6robotics_data_processing/i6robotics_data_processing.egg-info/PKG-INFO
+writing dependency_links to ../../build/i6robotics_data_processing/i6robotics_data_processing.egg-info/dependency_links.txt
+writing entry points to ../../build/i6robotics_data_processing/i6robotics_data_processing.egg-info/entry_points.txt
+writing requirements to ../../build/i6robotics_data_processing/i6robotics_data_processing.egg-info/requires.txt
+writing top-level names to ../../build/i6robotics_data_processing/i6robotics_data_processing.egg-info/top_level.txt
+writing manifest file '../../build/i6robotics_data_processing/i6robotics_data_processing.egg-info/SOURCES.txt'
+reading manifest file '../../build/i6robotics_data_processing/i6robotics_data_processing.egg-info/SOURCES.txt'
+writing manifest file '../../build/i6robotics_data_processing/i6robotics_data_processing.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/build/i6robotics_data_processing/build
+creating /home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/build/i6robotics_data_processing/build/lib
+creating /home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/build/i6robotics_data_processing/build/lib/i6robotics_data_processing
+copying i6robotics_data_processing/__init__.py -> /home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/build/i6robotics_data_processing/build/lib/i6robotics_data_processing
+running install
+running install_lib
+creating /home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/install/i6robotics_data_processing/lib/python3.10/site-packages/i6robotics_data_processing
+copying /home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/build/i6robotics_data_processing/build/lib/i6robotics_data_processing/__init__.py -> /home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/install/i6robotics_data_processing/lib/python3.10/site-packages/i6robotics_data_processing
+byte-compiling /home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/install/i6robotics_data_processing/lib/python3.10/site-packages/i6robotics_data_processing/__init__.py to __init__.cpython-310.pyc
+running install_data
+creating /home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/install/i6robotics_data_processing/share/ament_index
+creating /home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/install/i6robotics_data_processing/share/ament_index/resource_index
+creating /home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/install/i6robotics_data_processing/share/ament_index/resource_index/packages
+copying resource/i6robotics_data_processing -> /home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/install/i6robotics_data_processing/share/ament_index/resource_index/packages
+copying package.xml -> /home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/install/i6robotics_data_processing/share/i6robotics_data_processing
+running install_egg_info
+Copying ../../build/i6robotics_data_processing/i6robotics_data_processing.egg-info to /home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/install/i6robotics_data_processing/lib/python3.10/site-packages/i6robotics_data_processing-0.0.0-py3.10.egg-info
+running install_scripts
+writing list of installed files to '/home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/build/i6robotics_data_processing/install.log'

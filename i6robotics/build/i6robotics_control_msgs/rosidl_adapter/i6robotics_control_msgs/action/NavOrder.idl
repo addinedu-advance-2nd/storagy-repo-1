@@ -1,0 +1,28 @@
+// generated from rosidl_adapter/resource/action.idl.em
+// with input from i6robotics_control_msgs/action/NavOrder.action
+// generated code does not contain a copyright notice
+
+#include "geometry_msgs/msg/Pose.idl"
+#include "geometry_msgs/msg/PoseStamped.idl"
+
+module i6robotics_control_msgs {
+  module action {
+    @verbatim (language="comment", text=
+      "Request")
+    struct NavOrder_Goal {
+      geometry_msgs::msg::Pose goal_pose;
+    };
+    @verbatim (language="comment", text=
+      "Result")
+    struct NavOrder_Result {
+      string result;
+    };
+    @verbatim (language="comment", text=
+      "Feedback")
+    struct NavOrder_Feedback {
+      geometry_msgs::msg::PoseStamped current_pose;
+
+      float distance_remaining;
+    };
+  };
+};

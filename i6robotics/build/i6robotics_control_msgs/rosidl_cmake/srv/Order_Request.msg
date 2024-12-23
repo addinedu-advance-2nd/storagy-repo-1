@@ -1,0 +1,10 @@
+# Request
+string order    
+# 주행 요청
+# follow_on (팔로우 활성화)
+# follow_off(팔로우 비활성화)
+# nav_to_pose (특정 위치로 이동)
+# nav_to_pose_with_client (특정 위치로 안내)
+# nav_to_station (충전 스테이션으로 복귀)
+
+geometry_msgs/Pose goal_pose    # nav_to_pose, nav_to_pose_with_client, 두 경우에만 도착 지점의 좌표를 입력. 이 외에는 None 입력  

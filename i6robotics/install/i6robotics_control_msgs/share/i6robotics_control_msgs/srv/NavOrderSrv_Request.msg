@@ -1,0 +1,2 @@
+#request
+geometry_msgs/Pose goal_pose

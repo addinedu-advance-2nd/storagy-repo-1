@@ -1,0 +1,8 @@
+source;share/i6robotics_msgs/hook/cmake_prefix_path.ps1
+source;share/i6robotics_msgs/hook/cmake_prefix_path.dsv
+source;share/i6robotics_msgs/hook/cmake_prefix_path.sh
+source;share/i6robotics_msgs/local_setup.bash
+source;share/i6robotics_msgs/local_setup.dsv
+source;share/i6robotics_msgs/local_setup.ps1
+source;share/i6robotics_msgs/local_setup.sh
+source;share/i6robotics_msgs/local_setup.zsh

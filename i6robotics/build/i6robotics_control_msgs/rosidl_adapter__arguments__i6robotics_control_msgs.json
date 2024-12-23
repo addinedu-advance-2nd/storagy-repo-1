@@ -1,0 +1,11 @@
+{
+  "package_name": "i6robotics_control_msgs",
+  "non_idl_tuples": [
+    "/home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/src/i6robotics_control_msgs:msg/CmdAndPoseVel.msg",
+    "/home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/src/i6robotics_control_msgs:action/NavOrder.action",
+    "/home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/src/i6robotics_control_msgs:action/Follow.action",
+    "/home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/src/i6robotics_control_msgs:srv/NavOrderSrv.srv",
+    "/home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/src/i6robotics_control_msgs:srv/Order.srv",
+    "/home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/src/i6robotics_control_msgs:msg/NavOrderFeedback.msg"
+  ]
+}

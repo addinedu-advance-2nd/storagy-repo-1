@@ -1,0 +1,20 @@
+[1.250s] Invoking command in '/home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/src/i6robotics_get_data': PYTHONPATH=/home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/build/i6robotics_get_data/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/install/i6robotics_get_data/lib/python3.10/site-packages: /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/i6robotics_get_data build --build-base /home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/build/i6robotics_get_data/build install --record /home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/build/i6robotics_get_data/install.log --single-version-externally-managed install_data
+[1.447s] running egg_info
+[1.448s] writing ../../build/i6robotics_get_data/i6robotics_get_data.egg-info/PKG-INFO
+[1.450s] writing dependency_links to ../../build/i6robotics_get_data/i6robotics_get_data.egg-info/dependency_links.txt
+[1.450s] writing entry points to ../../build/i6robotics_get_data/i6robotics_get_data.egg-info/entry_points.txt
+[1.450s] writing requirements to ../../build/i6robotics_get_data/i6robotics_get_data.egg-info/requires.txt
+[1.450s] writing top-level names to ../../build/i6robotics_get_data/i6robotics_get_data.egg-info/top_level.txt
+[1.452s] reading manifest file '../../build/i6robotics_get_data/i6robotics_get_data.egg-info/SOURCES.txt'
+[1.453s] writing manifest file '../../build/i6robotics_get_data/i6robotics_get_data.egg-info/SOURCES.txt'
+[1.454s] running build
+[1.454s] running build_py
+[1.454s] running install
+[1.454s] running install_lib
+[1.456s] running install_data
+[1.456s] running install_egg_info
+[1.458s] removing '/home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/install/i6robotics_get_data/lib/python3.10/site-packages/i6robotics_get_data-0.0.0-py3.10.egg-info' (and everything under it)
+[1.458s] Copying ../../build/i6robotics_get_data/i6robotics_get_data.egg-info to /home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/install/i6robotics_get_data/lib/python3.10/site-packages/i6robotics_get_data-0.0.0-py3.10.egg-info
+[1.460s] running install_scripts
+[1.487s] writing list of installed files to '/home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/build/i6robotics_get_data/install.log'
+[1.541s] Invoked command in '/home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/src/i6robotics_get_data' returned '0': PYTHONPATH=/home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/build/i6robotics_get_data/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/install/i6robotics_get_data/lib/python3.10/site-packages: /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/i6robotics_get_data build --build-base /home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/build/i6robotics_get_data/build install --record /home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/build/i6robotics_get_data/install.log --single-version-externally-managed install_data

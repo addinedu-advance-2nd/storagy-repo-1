@@ -1,0 +1,4 @@
+srv/SetGoalChoice.idl
+srv/SetGoalChoice.srv
+srv/SetGoalChoice_Request.msg
+srv/SetGoalChoice_Response.msg

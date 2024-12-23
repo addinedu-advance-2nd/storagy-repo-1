@@ -1,0 +1,32 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from i6robotics_control_msgs/srv/Order.srv
+// generated code does not contain a copyright notice
+
+#include "geometry_msgs/msg/Pose.idl"
+
+module i6robotics_control_msgs {
+  module srv {
+    @verbatim (language="comment", text=
+      "Request")
+    struct Order_Request {
+      string order;
+
+      @verbatim (language="comment", text=
+        "주행 요청" "\n"
+        "follow_on (팔로우 활성화)" "\n"
+        "follow_off(팔로우 비활성화)" "\n"
+        "nav_to_pose (특정 위치로 이동)" "\n"
+        "nav_to_pose_with_client (특정 위치로 안내)" "\n"
+        "nav_to_station (충전 스테이션으로 복귀)" "\n"
+        "nav_to_pose, nav_to_pose_with_client, 두 경우에만 도착 지점의 좌표를 입력. 이 외에는 None 입력")
+      geometry_msgs::msg::Pose goal_pose;
+    };
+    @verbatim (language="comment", text=
+      "Response")
+    struct Order_Response {
+      @verbatim (language="comment", text=
+        "주행 명령이 잘 적용되었는지. 잘 적용되었다면 True, 그렇지 않다면 False")
+      boolean accepted;
+    };
+  };
+};

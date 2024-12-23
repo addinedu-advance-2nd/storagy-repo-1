@@ -1,0 +1,6 @@
+[console_scripts]
+nav2pose_client_test6 = i6robotics_guiding.nav2pose_client_test6:main
+nav2pose_client_test7 = i6robotics_guiding.nav2pose_client_test7:main
+rear_camera_publisher3 = i6robotics_guiding.rear_camera_publisher3:main
+set_goal_choice_client = i6robotics_guiding.set_goal_choice_client:main
+

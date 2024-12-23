@@ -1,0 +1,15 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from i6robotics_control_msgs/msg/NavOrderFeedback.msg
+// generated code does not contain a copyright notice
+
+#include "geometry_msgs/msg/PoseStamped.idl"
+
+module i6robotics_control_msgs {
+  module msg {
+    struct NavOrderFeedback {
+      geometry_msgs::msg::PoseStamped current_pose;
+
+      float distance_remaining;
+    };
+  };
+};

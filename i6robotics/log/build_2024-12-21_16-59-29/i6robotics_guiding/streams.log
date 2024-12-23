@@ -1,0 +1,24 @@
+[1.240s] Invoking command in '/home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/src/i6robotics_guiding': PYTHONPATH=/home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/build/i6robotics_guiding/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/install/i6robotics_guiding/lib/python3.10/site-packages: /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/i6robotics_guiding build --build-base /home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/build/i6robotics_guiding/build install --record /home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/build/i6robotics_guiding/install.log --single-version-externally-managed install_data
+[1.454s] running egg_info
+[1.455s] writing ../../build/i6robotics_guiding/i6robotics_guiding.egg-info/PKG-INFO
+[1.455s] writing dependency_links to ../../build/i6robotics_guiding/i6robotics_guiding.egg-info/dependency_links.txt
+[1.455s] writing entry points to ../../build/i6robotics_guiding/i6robotics_guiding.egg-info/entry_points.txt
+[1.456s] writing requirements to ../../build/i6robotics_guiding/i6robotics_guiding.egg-info/requires.txt
+[1.456s] writing top-level names to ../../build/i6robotics_guiding/i6robotics_guiding.egg-info/top_level.txt
+[1.457s] reading manifest file '../../build/i6robotics_guiding/i6robotics_guiding.egg-info/SOURCES.txt'
+[1.458s] writing manifest file '../../build/i6robotics_guiding/i6robotics_guiding.egg-info/SOURCES.txt'
+[1.459s] running build
+[1.459s] running build_py
+[1.459s] running install
+[1.459s] running install_lib
+[1.460s] running install_data
+[1.460s] running install_egg_info
+[1.462s] removing '/home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/install/i6robotics_guiding/lib/python3.10/site-packages/i6robotics_guiding-0.0.1-py3.10.egg-info' (and everything under it)
+[1.463s] Copying ../../build/i6robotics_guiding/i6robotics_guiding.egg-info to /home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/install/i6robotics_guiding/lib/python3.10/site-packages/i6robotics_guiding-0.0.1-py3.10.egg-info
+[1.463s] running install_scripts
+[1.486s] Installing nav2pose_client_test6 script to /home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/install/i6robotics_guiding/lib/i6robotics_guiding
+[1.486s] Installing nav2pose_client_test7 script to /home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/install/i6robotics_guiding/lib/i6robotics_guiding
+[1.486s] Installing rear_camera_publisher3 script to /home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/install/i6robotics_guiding/lib/i6robotics_guiding
+[1.486s] Installing set_goal_choice_client script to /home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/install/i6robotics_guiding/lib/i6robotics_guiding
+[1.486s] writing list of installed files to '/home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/build/i6robotics_guiding/install.log'
+[1.545s] Invoked command in '/home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/src/i6robotics_guiding' returned '0': PYTHONPATH=/home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/build/i6robotics_guiding/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/install/i6robotics_guiding/lib/python3.10/site-packages: /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/i6robotics_guiding build --build-base /home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/build/i6robotics_guiding/build install --record /home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/build/i6robotics_guiding/install.log --single-version-externally-managed install_data

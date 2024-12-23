@@ -1,0 +1,8 @@
+setup.py
+guiding_services/__init__.py
+guiding_services.egg-info/PKG-INFO
+guiding_services.egg-info/SOURCES.txt
+guiding_services.egg-info/dependency_links.txt
+guiding_services.egg-info/top_level.txt
+guiding_services/srv/__init__.py
+guiding_services/srv/_set_goal_choice.py

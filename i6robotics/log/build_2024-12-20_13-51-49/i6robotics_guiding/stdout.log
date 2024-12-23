@@ -1,0 +1,51 @@
+running egg_info
+creating ../../build/i6robotics_guiding/i6robotics_guiding.egg-info
+writing ../../build/i6robotics_guiding/i6robotics_guiding.egg-info/PKG-INFO
+writing dependency_links to ../../build/i6robotics_guiding/i6robotics_guiding.egg-info/dependency_links.txt
+writing entry points to ../../build/i6robotics_guiding/i6robotics_guiding.egg-info/entry_points.txt
+writing requirements to ../../build/i6robotics_guiding/i6robotics_guiding.egg-info/requires.txt
+writing top-level names to ../../build/i6robotics_guiding/i6robotics_guiding.egg-info/top_level.txt
+writing manifest file '../../build/i6robotics_guiding/i6robotics_guiding.egg-info/SOURCES.txt'
+reading manifest file '../../build/i6robotics_guiding/i6robotics_guiding.egg-info/SOURCES.txt'
+writing manifest file '../../build/i6robotics_guiding/i6robotics_guiding.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/build/i6robotics_guiding/build
+creating /home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/build/i6robotics_guiding/build/lib
+creating /home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/build/i6robotics_guiding/build/lib/i6robotics_guiding
+copying i6robotics_guiding/nav2pose_client_test6.py -> /home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/build/i6robotics_guiding/build/lib/i6robotics_guiding
+copying i6robotics_guiding/rear_camera_publisher3.py -> /home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/build/i6robotics_guiding/build/lib/i6robotics_guiding
+copying i6robotics_guiding/nav2pose_client_test7.py -> /home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/build/i6robotics_guiding/build/lib/i6robotics_guiding
+copying i6robotics_guiding/set_goal_choice_client.py -> /home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/build/i6robotics_guiding/build/lib/i6robotics_guiding
+copying i6robotics_guiding/__init__.py -> /home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/build/i6robotics_guiding/build/lib/i6robotics_guiding
+running install
+running install_lib
+creating /home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/install/i6robotics_guiding/lib/python3.10/site-packages/i6robotics_guiding
+copying /home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/build/i6robotics_guiding/build/lib/i6robotics_guiding/nav2pose_client_test6.py -> /home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/install/i6robotics_guiding/lib/python3.10/site-packages/i6robotics_guiding
+copying /home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/build/i6robotics_guiding/build/lib/i6robotics_guiding/rear_camera_publisher3.py -> /home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/install/i6robotics_guiding/lib/python3.10/site-packages/i6robotics_guiding
+copying /home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/build/i6robotics_guiding/build/lib/i6robotics_guiding/nav2pose_client_test7.py -> /home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/install/i6robotics_guiding/lib/python3.10/site-packages/i6robotics_guiding
+copying /home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/build/i6robotics_guiding/build/lib/i6robotics_guiding/set_goal_choice_client.py -> /home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/install/i6robotics_guiding/lib/python3.10/site-packages/i6robotics_guiding
+copying /home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/build/i6robotics_guiding/build/lib/i6robotics_guiding/__init__.py -> /home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/install/i6robotics_guiding/lib/python3.10/site-packages/i6robotics_guiding
+byte-compiling /home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/install/i6robotics_guiding/lib/python3.10/site-packages/i6robotics_guiding/nav2pose_client_test6.py to nav2pose_client_test6.cpython-310.pyc
+byte-compiling /home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/install/i6robotics_guiding/lib/python3.10/site-packages/i6robotics_guiding/rear_camera_publisher3.py to rear_camera_publisher3.cpython-310.pyc
+byte-compiling /home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/install/i6robotics_guiding/lib/python3.10/site-packages/i6robotics_guiding/nav2pose_client_test7.py to nav2pose_client_test7.cpython-310.pyc
+byte-compiling /home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/install/i6robotics_guiding/lib/python3.10/site-packages/i6robotics_guiding/set_goal_choice_client.py to set_goal_choice_client.cpython-310.pyc
+byte-compiling /home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/install/i6robotics_guiding/lib/python3.10/site-packages/i6robotics_guiding/__init__.py to __init__.cpython-310.pyc
+running install_data
+creating /home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/install/i6robotics_guiding/share/ament_index
+creating /home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/install/i6robotics_guiding/share/ament_index/resource_index
+creating /home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/install/i6robotics_guiding/share/ament_index/resource_index/packages
+copying resource/i6robotics_guiding -> /home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/install/i6robotics_guiding/share/ament_index/resource_index/packages
+copying package.xml -> /home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/install/i6robotics_guiding/share/i6robotics_guiding
+creating /home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/install/i6robotics_guiding/share/i6robotics_guiding/launch
+copying launch/guiding.launch.py -> /home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/install/i6robotics_guiding/share/i6robotics_guiding/launch
+creating /home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/install/i6robotics_guiding/share/i6robotics_guiding/srv
+copying srv/SetGoalChoice.srv -> /home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/install/i6robotics_guiding/share/i6robotics_guiding/srv
+running install_egg_info
+Copying ../../build/i6robotics_guiding/i6robotics_guiding.egg-info to /home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/install/i6robotics_guiding/lib/python3.10/site-packages/i6robotics_guiding-0.0.1-py3.10.egg-info
+running install_scripts
+Installing nav2pose_client_test6 script to /home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/install/i6robotics_guiding/lib/i6robotics_guiding
+Installing nav2pose_client_test7 script to /home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/install/i6robotics_guiding/lib/i6robotics_guiding
+Installing rear_camera_publisher3 script to /home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/install/i6robotics_guiding/lib/i6robotics_guiding
+Installing set_goal_choice_client script to /home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/install/i6robotics_guiding/lib/i6robotics_guiding
+writing list of installed files to '/home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/build/i6robotics_guiding/install.log'

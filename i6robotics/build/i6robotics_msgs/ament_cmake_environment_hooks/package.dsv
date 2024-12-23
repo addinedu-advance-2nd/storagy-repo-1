@@ -1,0 +1,4 @@
+source;share/i6robotics_msgs/local_setup.bash
+source;share/i6robotics_msgs/local_setup.dsv
+source;share/i6robotics_msgs/local_setup.sh
+source;share/i6robotics_msgs/local_setup.zsh

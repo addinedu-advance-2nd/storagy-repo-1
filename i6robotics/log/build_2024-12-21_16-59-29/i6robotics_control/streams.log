@@ -1,0 +1,30 @@
+[1.274s] Invoking command in '/home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/src/i6robotics_control': PYTHONPATH=/home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/build/i6robotics_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/install/i6robotics_control/lib/python3.10/site-packages: /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/i6robotics_control build --build-base /home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/build/i6robotics_control/build install --record /home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/build/i6robotics_control/install.log --single-version-externally-managed install_data
+[1.493s] running egg_info
+[1.494s] writing ../../build/i6robotics_control/i6robotics_control.egg-info/PKG-INFO
+[1.494s] writing dependency_links to ../../build/i6robotics_control/i6robotics_control.egg-info/dependency_links.txt
+[1.494s] writing entry points to ../../build/i6robotics_control/i6robotics_control.egg-info/entry_points.txt
+[1.494s] writing requirements to ../../build/i6robotics_control/i6robotics_control.egg-info/requires.txt
+[1.495s] writing top-level names to ../../build/i6robotics_control/i6robotics_control.egg-info/top_level.txt
+[1.497s] reading manifest file '../../build/i6robotics_control/i6robotics_control.egg-info/SOURCES.txt'
+[1.498s] writing manifest file '../../build/i6robotics_control/i6robotics_control.egg-info/SOURCES.txt'
+[1.498s] running build
+[1.498s] running build_py
+[1.499s] copying i6robotics_control/control_action_clients.py -> /home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/build/i6robotics_control/build/lib/i6robotics_control
+[1.499s] running install
+[1.499s] running install_lib
+[1.500s] copying /home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/build/i6robotics_control/build/lib/i6robotics_control/control_action_clients.py -> /home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/install/i6robotics_control/lib/python3.10/site-packages/i6robotics_control
+[1.501s] byte-compiling /home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/install/i6robotics_control/lib/python3.10/site-packages/i6robotics_control/control_action_clients.py to control_action_clients.cpython-310.pyc
+[1.503s] running install_data
+[1.503s] running install_egg_info
+[1.504s] removing '/home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/install/i6robotics_control/lib/python3.10/site-packages/i6robotics_control-0.0.0-py3.10.egg-info' (and everything under it)
+[1.505s] Copying ../../build/i6robotics_control/i6robotics_control.egg-info to /home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/install/i6robotics_control/lib/python3.10/site-packages/i6robotics_control-0.0.0-py3.10.egg-info
+[1.506s] running install_scripts
+[1.527s] Installing i6robotics_control_nav_action_node script to /home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/install/i6robotics_control/lib/i6robotics_control
+[1.527s] Installing i6robotics_control_nav_feedback_node script to /home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/install/i6robotics_control/lib/i6robotics_control
+[1.527s] Installing i6robotics_control_nav_service_node script to /home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/install/i6robotics_control/lib/i6robotics_control
+[1.528s] Installing i6robotics_control_node script to /home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/install/i6robotics_control/lib/i6robotics_control
+[1.528s] Installing i6robotics_control_simplecmd_node script to /home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/install/i6robotics_control/lib/i6robotics_control
+[1.528s] Installing my_action_client script to /home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/install/i6robotics_control/lib/i6robotics_control
+[1.528s] Installing nav_to_pose_action_client script to /home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/install/i6robotics_control/lib/i6robotics_control
+[1.528s] writing list of installed files to '/home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/build/i6robotics_control/install.log'
+[1.580s] Invoked command in '/home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/src/i6robotics_control' returned '0': PYTHONPATH=/home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/build/i6robotics_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/install/i6robotics_control/lib/python3.10/site-packages: /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/i6robotics_control build --build-base /home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/build/i6robotics_control/build install --record /home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/build/i6robotics_control/install.log --single-version-externally-managed install_data

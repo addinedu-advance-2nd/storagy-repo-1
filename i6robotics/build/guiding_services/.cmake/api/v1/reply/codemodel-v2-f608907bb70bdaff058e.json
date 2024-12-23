@@ -1,0 +1,233 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-1d5c8ab940972942a446.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17
+					]
+				},
+				{
+					"build" : "guiding_services__py",
+					"jsonFile" : "directory-guiding_services__py-5fe44744194cf5c1237d.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "/home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/build/guiding_services/guiding_services__py",
+					"targetIndexes" : 
+					[
+						4
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1
+					],
+					"name" : "guiding_services",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ament_cmake_python_build_guiding_services_egg::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ament_cmake_python_build_guiding_services_egg-20a08a34c9970b5352b0.json",
+					"name" : "ament_cmake_python_build_guiding_services_egg",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ament_cmake_python_copy_guiding_services::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ament_cmake_python_copy_guiding_services-b2d4a81d209748e6c786.json",
+					"name" : "ament_cmake_python_copy_guiding_services",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "guiding_services::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-guiding_services-ea3a19d27301a965630f.json",
+					"name" : "guiding_services",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "guiding_services__cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-guiding_services__cpp-433eb0475ada1d22e3b2.json",
+					"name" : "guiding_services__cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "guiding_services__py::@d312a0f1e4dce7a2d913",
+					"jsonFile" : "target-guiding_services__py-b4d538b5cb26057543be.json",
+					"name" : "guiding_services__py",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "guiding_services__rosidl_generator_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-guiding_services__rosidl_generator_c-cb3c206c99fb18bb77f5.json",
+					"name" : "guiding_services__rosidl_generator_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "guiding_services__rosidl_generator_py::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-guiding_services__rosidl_generator_py-1697f2b5ff54178d5b45.json",
+					"name" : "guiding_services__rosidl_generator_py",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "guiding_services__rosidl_typesupport_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-guiding_services__rosidl_typesupport_c-2cff0126d6a349d89b4b.json",
+					"name" : "guiding_services__rosidl_typesupport_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "guiding_services__rosidl_typesupport_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-guiding_services__rosidl_typesupport_c__pyext-fe1fc2ed1259e07c0208.json",
+					"name" : "guiding_services__rosidl_typesupport_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "guiding_services__rosidl_typesupport_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-guiding_services__rosidl_typesupport_cpp-e75bd67c4874f4d0de59.json",
+					"name" : "guiding_services__rosidl_typesupport_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "guiding_services__rosidl_typesupport_fastrtps_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-guiding_services__rosidl_typesupport_fastrtps_c-5ea53e739103a43e1896.json",
+					"name" : "guiding_services__rosidl_typesupport_fastrtps_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "guiding_services__rosidl_typesupport_fastrtps_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-guiding_services__rosidl_typesupport_fastrtps_c__pyext-ca1885ef841736135bb9.json",
+					"name" : "guiding_services__rosidl_typesupport_fastrtps_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "guiding_services__rosidl_typesupport_fastrtps_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-guiding_services__rosidl_typesupport_fastrtps_cpp-236e00134b0f3b473079.json",
+					"name" : "guiding_services__rosidl_typesupport_fastrtps_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "guiding_services__rosidl_typesupport_introspection_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-guiding_services__rosidl_typesupport_introspection_c-008949844339a9473176.json",
+					"name" : "guiding_services__rosidl_typesupport_introspection_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "guiding_services__rosidl_typesupport_introspection_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-guiding_services__rosidl_typesupport_introspection_c__pyext-921f2810e01942d1532e.json",
+					"name" : "guiding_services__rosidl_typesupport_introspection_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "guiding_services__rosidl_typesupport_introspection_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-guiding_services__rosidl_typesupport_introspection_cpp-2554c4441fa800efca6a.json",
+					"name" : "guiding_services__rosidl_typesupport_introspection_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "guiding_services_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-guiding_services_uninstall-879a3197d588d5f955c8.json",
+					"name" : "guiding_services_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-4de333ae4a34a9bef88c.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/build/guiding_services",
+		"source" : "/home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/src/guiding_services"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

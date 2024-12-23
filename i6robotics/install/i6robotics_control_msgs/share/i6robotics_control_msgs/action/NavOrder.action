@@ -1,0 +1,9 @@
+#Request
+geometry_msgs/Pose goal_pose
+---
+#Result
+string result
+---
+# Feedback
+geometry_msgs/PoseStamped current_pose
+float32 distance_remaining

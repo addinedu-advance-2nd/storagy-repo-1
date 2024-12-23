@@ -1,0 +1,4 @@
+source;share/guiding_services/local_setup.bash
+source;share/guiding_services/local_setup.dsv
+source;share/guiding_services/local_setup.sh
+source;share/guiding_services/local_setup.zsh

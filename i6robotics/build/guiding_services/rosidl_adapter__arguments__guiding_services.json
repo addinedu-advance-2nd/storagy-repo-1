@@ -1,0 +1,6 @@
+{
+  "package_name": "guiding_services",
+  "non_idl_tuples": [
+    "/home/hjpark/dev_hjp/ROS2/storagy-repo-1/i6robotics/src/guiding_services:srv/SetGoalChoice.srv"
+  ]
+}

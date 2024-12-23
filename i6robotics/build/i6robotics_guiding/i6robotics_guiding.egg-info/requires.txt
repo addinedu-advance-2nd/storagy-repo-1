@@ -1,0 +1,10 @@
+action_msgs
+geometry_msgs
+mediapipe
+nav2_msgs
+numpy
+opencv-python
+rclpy
+setuptools
+std_msgs
+unique_identifier_msgs

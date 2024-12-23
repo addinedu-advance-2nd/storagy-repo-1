@@ -1,0 +1,6 @@
+source;share/i6robotics_get_data/hook/pythonpath.ps1
+source;share/i6robotics_get_data/hook/pythonpath.dsv
+source;share/i6robotics_get_data/hook/pythonpath.sh
+source;share/i6robotics_get_data/hook/ament_prefix_path.ps1
+source;share/i6robotics_get_data/hook/ament_prefix_path.dsv
+source;share/i6robotics_get_data/hook/ament_prefix_path.sh

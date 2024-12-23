@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>i6robotics_guiding</name>
+  <version>0.0.1</version>
+  <description>A ROS2 package to pause and resume navigation goals</description>
+  <maintainer email="zl@yourdomain.com">zl</maintainer>
+  <license>Apache-2.0</license>
+
+  <!-- Build dependencies -->
+  <depend>rclpy</depend>
+  <depend>std_msgs</depend>
+  <depend>action_msgs</depend>
+  <depend>nav2_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <depend>unique_identifier_msgs</depend>
+  <depend>opencv-python</depend>
+  <depend>mediapipe</depend>
+  <depend>numpy</depend>
+  <depend>rosidl_default_generators</depend>
+
+  <!-- Runtime dependencies -->
+  <exec_depend>rosidl_default_runtime</exec_depend>
+
+  <!-- Test dependencies -->
+  <test_depend>ament_copyright</test_depend>
+  <test_depend>ament_flake8</test_depend>
+  <test_depend>ament_pep257</test_depend>
+  <test_depend>python3-pytest</test_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

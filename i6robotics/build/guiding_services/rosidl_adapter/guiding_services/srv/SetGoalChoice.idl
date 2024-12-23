@@ -1,0 +1,23 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from guiding_services/srv/SetGoalChoice.srv
+// generated code does not contain a copyright notice
+
+
+module guiding_services {
+  module srv {
+    struct SetGoalChoice_Request {
+      @verbatim (language="comment", text=
+        "요청: 선택한 goal (1~5 또는 0으로 종료)")
+      int32 choice;
+    };
+    struct SetGoalChoice_Response {
+      @verbatim (language="comment", text=
+        "응답: 요청 성공 여부")
+      boolean success;
+
+      @verbatim (language="comment", text=
+        "응답: 결과 메시지")
+      string message;
+    };
+  };
+};
