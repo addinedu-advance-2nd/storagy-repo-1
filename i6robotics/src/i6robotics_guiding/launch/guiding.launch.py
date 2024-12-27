@@ -15,7 +15,7 @@ def generate_launch_description():
         # nav2pose_client_test7.py 실행 노드
         Node(
             package='i6robotics_guiding',  
-            executable='nav2pose_client_test7',  
+            executable='nav2pose_client',  
             name='nav2pose_client',
             output='screen',
             emulate_tty=True

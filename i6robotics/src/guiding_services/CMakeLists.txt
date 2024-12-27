@@ -10,11 +10,14 @@ find_package(ament_cmake REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
 find_package(rclpy REQUIRED)
 find_package(std_msgs REQUIRED)
+find_package(geometry_msgs REQUIRED)
 
 # 서비스 메시지 생성
 rosidl_generate_interfaces(${PROJECT_NAME}
   "srv/SetGoalChoice.srv"
-  DEPENDENCIES std_msgs
+  "srv/SetGoalPose.srv"
+  DEPENDENCIES std_msgs 
+  DEPENDENCIES geometry_msgs
 )
 
 if(BUILD_TESTING)

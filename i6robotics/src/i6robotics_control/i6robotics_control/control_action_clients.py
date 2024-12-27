@@ -8,6 +8,8 @@ from i6robotics_control_msgs.srv import Order, FollowOrder
 from i6robotics_control_msgs.action import Follow
 from guiding_services.srv import SetGoalPose
 from std_srvs.srv import SetBool
+from i6robotics_control_msgs.msg import NavOrderFeedback
+from geometry_msgs.msg import Twist
 
 import threading
 import time
@@ -24,40 +26,63 @@ class MyActionClient(Node):
         self.initial_pose_pub = self.create_publisher(PoseWithCovarianceStamped,
                                                       'initialpose',
                                                       10)
-        
-        
+        self.publisher = self.create_publisher(
+            NavOrderFeedback, #메시지 타입
+            '/i6robotics_navigation_feedback', #발행할 토픽
+            10
+        )
+
+        # cmd_vel publisher 생성
+        self.cmd_vel_publisher = self.create_publisher(Twist, '/cmd_vel', 10)
+        self.msg = Twist()
+        self.msg.linear.x = 0.0  # x 방향 속도 설정
+        self.msg.linear.y = 0.0       # y 방향은 0
+        self.msg.linear.z = 0.0       # z 방향은 0
+        self.msg.angular.x = 0.0      # 회전 x축
+        self.msg.angular.y = 0.0      # 회전 y축
+        self.msg.angular.z = 0.0      # 회전 z축
+
         # UI로부터 요청을 수락하는 Service server
         self.srv = self.create_service(Order, 'order', self.order_callback)
         self.get_logger().info('주행 명령 수신 서비스 서버가 시작되었습니다.')
 
         self.current_pose = PoseStamped() 
         self.current_pose.header.frame_id = 'map'
-        self.initilize_current_pose()
+        # self.initilize_current_pose()
 
         # self.initilize_start_pose()
+        self.comeon = True
         self.go_station = False
         self.follow_init = False
         
-    def initilize_start_pose(self):
-        init_pose = PoseWithCovarianceStamped()
-        init_pose.header.frame_id = 'map'
-        init_pose.header.stamp = self.get_clock().now().to_msg()
-        init_pose.pose.pose.position.x = -0.34
-        init_pose.pose.pose.position.y = 1.42
-        init_pose.pose.pose.position.z = 0.0
-        init_pose.pose.pose.orientation.z = 0.0
-        init_pose.pose.pose.orientation.w = 0.999
-        self.get_logger().info('Publishing Initial Pose')
-        self.initial_pose_pub.publish(init_pose)
+    # def initilize_start_pose(self):
+    #     init_pose = PoseWithCovarianceStamped()
+    #     init_pose.header.frame_id = 'map'
+    #     init_pose.header.stamp = self.get_clock().now().to_msg()
+    #     init_pose.pose.pose.position.x = -0.34
+    #     init_pose.pose.pose.position.y = 1.42
+    #     init_pose.pose.pose.position.z = 0.0
+    #     init_pose.pose.pose.orientation.z = 0.0
+    #     init_pose.pose.pose.orientation.w = 0.999
+    #     self.get_logger().info('Publishing Initial Pose')
+    #     self.initial_pose_pub.publish(init_pose)
 
 
-    def initilize_current_pose(self):
-        self.current_pose.header.stamp = self.get_clock().now().to_msg()
-        self.current_pose.pose.position.x = -0.169 
-        self.current_pose.pose.position.y = 0.25
-        self.current_pose.pose.position.z = 0.0
-        self.current_pose.pose.orientation.z = 0.0
-        self.current_pose.pose.orientation.w = 0.999
+    # def initilize_current_pose(self):
+    #     self.current_pose.header.stamp = self.get_clock().now().to_msg()
+    #     self.current_pose.pose.position.x = -0.34
+    #     self.current_pose.pose.position.y = 1.42
+    #     self.current_pose.pose.position.z = 0.0
+    #     self.current_pose.pose.orientation.z = -0.0084
+    #     self.current_pose.pose.orientation.w = 0.999
+
+    #     msg = PoseWithCovarianceStamped()
+    #     msg.pose.pose = self.current_pose.pose
+    #     msg.header.frame_id = self.current_pose.header.frame_id
+    #     msg.header.stamp = self.current_pose.header.stamp
+    #     self.get_logger().info('Publishing Initial Pose')
+    #     self.initial_pose_pub.publish(msg)
+        
 
     # Service Server. 주행 명령 수신 서비스 서버
     def order_callback(self, request, response):
@@ -84,6 +109,11 @@ class MyActionClient(Node):
                 response.accepted = False
         elif request.order == 'nav_to_pose_with_client':
             if request.goal_pose is not None:
+                # 최초 안내 명령 보내기 전 한 바퀴 회전.
+                self.msg.angular.z = 0.5
+                for i in range(11):
+                    self.cmd_vel_publisher.publish(self.msg)
+                    time.sleep(0.8)
                 goal_pose = request.goal_pose
                 self.nav_with_customer_send_goal(goal_pose)
                 response.accepted = True
@@ -91,7 +121,7 @@ class MyActionClient(Node):
                 response.accepted = False
         elif request.order == 'nav_to_station':
             goal_pose = Pose() 
-            goal_pose.position.x = -0.169 
+            goal_pose.position.x = 0.1 # -0.169
             goal_pose.position.y = 0.25
             goal_pose.position.z = 0.0
             goal_pose.orientation.z = -0.99
@@ -145,12 +175,29 @@ class MyActionClient(Node):
 
     def nav_to_pose_feedback_callback(self, feedback_msg):
         self.current_pose = feedback_msg.feedback.current_pose
+
+        msg = NavOrderFeedback() #Twist 타입의 메시지 정의
+        msg.current_pose = feedback_msg.feedback.current_pose
+        if feedback_msg.feedback.distance_remaining :
+            msg.distance_remaining = round(feedback_msg.feedback.distance_remaining, 2)
+        else:
+            msg.distance_remaining = feedback_msg.feedback.distance_remaining
+            
+        # 메시지 퍼블리시
+        self.publisher.publish(msg) 
+
         # self.get_logger().info(f'Feedback: {feedback_msg.feedback}')
 
     def nav_to_pose_result_callback(self, future):
         result = future.result()
         if result.status == GoalStatus.STATUS_SUCCEEDED:
             self.get_logger().info("Goal succeeded!")
+            # 첫 카트 호출 시 고객 팔로우 인식 시작
+            if self.comeon == True:
+                self.follow_send_order('follow_start')
+                self.follow_init = True
+                self.comeon = False
+
             # 성공했을 시 아루코마커 정렬 시작
             if self.go_station == True:
                 while not self.aruco_client.wait_for_service(timeout_sec=1.0):
@@ -170,44 +217,6 @@ class MyActionClient(Node):
         else:
             self.get_logger().warn(f"Unknown result status: {result.status}")
         self.go_station = False
-
-
-    # Action Client. follow_client
-    def follow_send_goal(self, feedback_callback=None):
-        goal_msg = Follow.Goal()
-
-        self.get_logger().info(f"Sending goal to Follow")
-
-        # send_goal => Follow
-        while not self.follow_client.wait_for_server(timeout_sec=1.0):
-            self.get_logger().info("Waiting for Follow action server...")
-        
-        send_goal_future = self.follow_client.send_goal_async(goal_msg, feedback_callback=self.follow_feedback_callback)
-        self.follow_init = True
-        send_goal_future.add_done_callback(self.follow_goal_response_callback)
-
-    def follow_goal_response_callback(self, future):
-        follow_goal_handle = future.result()
-        if not follow_goal_handle.accepted:
-            self.get_logger().warn("Goal rejected by Follow server")
-            return
-        self.get_logger().info("Goal accepted by Follow server")
-        result_future = follow_goal_handle.get_result_async()
-        result_future.add_done_callback(self.follow_result_callback)
-
-    def follow_feedback_callback(self, feedback_msg):
-        self.get_logger().info(f'Feedback: {feedback_msg.feedback}')
-
-    def follow_result_callback(self, future):
-        result = future.result()
-        if result.status == GoalStatus.STATUS_SUCCEEDED:
-            self.get_logger().info("Goal succeeded!")
-        elif result.status == GoalStatus.STATUS_ABORTED:
-            self.get_logger().warn("Goal aborted!")
-        elif result.status == GoalStatus.STATUS_CANCELED:
-            self.get_logger().warn("Goal canceled!")
-        else:
-            self.get_logger().warn(f"Unknown result status: {result.status}")
 
     def follow_send_order(self, order):
         while not self.follow_service_client.wait_for_service(timeout_sec=1.0):

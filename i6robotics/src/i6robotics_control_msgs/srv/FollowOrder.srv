@@ -1,0 +1,8 @@
+# Request
+string order    
+# follow_on (팔로우 활성화)
+# follow_off(팔로우 비활성화)
+# follow_reset (추적 고객 재설정)
+---
+# Response
+bool accepted   # Follow 관련 명령이 잘 적용되었는지. 잘 적용되었다면 True, 그렇지 않다면 False

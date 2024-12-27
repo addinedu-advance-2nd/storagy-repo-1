@@ -35,7 +35,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            
+            'nav2pose_client = i6robotics_guiding.nav2pose_client:main',
             'nav2pose_client_test6 = i6robotics_guiding.nav2pose_client_test6:main',
             'nav2pose_client_test7 = i6robotics_guiding.nav2pose_client_test7:main',            
             'rear_camera_publisher3 = i6robotics_guiding.rear_camera_publisher3:main',

@@ -12,11 +12,22 @@ class TestClient(Node):
         self.req = Order.Request()
 
     def send_request(self, goal_pose):
-        self.req.order = 'nav_to_pose'
-        self.req.goal_pose = goal_pose
+        # self.req.order = 'nav_to_pose'
+        # self.req.goal_pose = goal_pose
+
+        self.req.order = 'follow_on'
+        self.req.goal_pose = Pose()
+        
+        # self.req.order = 'nav_to_pose_client'
+        # self.req.goal_pose = goal_pose
+
+        # self.req.order = "nav_to_station"
+        # self.req.goal_pose = Pose()
+        
         self.future = self.client.call_async(self.req)
         rclpy.spin_until_future_complete(self, self.future)
-        return self.future.resuls()
+        self.get_logger().info("Goal sended")
+        return self.future.result()
     
 if __name__=='__main__':
     rclpy.init(args=None)
@@ -29,6 +40,14 @@ if __name__=='__main__':
     goal_pose.orientation.y = 0.0
     goal_pose.orientation.z = -0.80
     goal_pose.orientation.w = 0.6
+
+    # goal_pose.position.x = -0.06 
+    # goal_pose.position.y = 0.05
+    # goal_pose.position.z = 0.0
+    # goal_pose.orientation.x = 0.0
+    # goal_pose.orientation.y = 0.0
+    # goal_pose.orientation.z = 0.0
+    # goal_pose.orientation.w = 0.999
 
     response = node.send_request(goal_pose)
     node.destroy_node()

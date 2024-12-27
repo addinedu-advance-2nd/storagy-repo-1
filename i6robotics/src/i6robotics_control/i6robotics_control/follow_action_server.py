@@ -3,6 +3,9 @@ from rclpy.node import Node
 from rclpy.action import ActionServer
 from rclpy.callback_groups import ReentrantCallbackGroup
 from i6robotics_control_msgs.action import Follow
+from i6robotics_control_msgs.srv import FollowOrder
+from geometry_msgs.msg import Twist
+
 
 import socket
 import threading
@@ -22,11 +25,23 @@ class FollowActionServer(Node):
             self,
             Follow,
             'follow',
-            callback_group=ReentrantCallbackGroup(),
-            execute_callback=self.execute_callback,
-            goal_callback=self.goal_callback,
-            cancel_callback=self.cancel_callback
+            self.execute_callback,
         )
+
+        # cmd_vel publisher 생성
+        self.cmd_vel_publisher = self.create_publisher(Twist, '/cmd_vel', 10)
+        self.msg = Twist()
+        self.msg.linear.x = 0.0  # x 방향 속도 설정
+        self.msg.linear.y = 0.0       # y 방향은 0
+        self.msg.linear.z = 0.0       # z 방향은 0
+        self.msg.angular.x = 0.0      # 회전 x축
+        self.msg.angular.y = 0.0      # 회전 y축
+        self.msg.angular.z = 0.0      # 회전 z축
+
+
+        # Control_action_clients로부터 작동 관련 명령을 수신하는 Service server
+        self.srv = self.create_service(FollowOrder, 'follow_order', self.order_callback)
+        self.get_logger().info('Follow 명령 수신 서비스 서버가 시작되었습니다.')
 
         # 이미지 통신 연결 및 receive 쓰레드 생성
         self.socket_connect = Socket_Connect()
@@ -42,24 +57,47 @@ class FollowActionServer(Node):
         model_cfg = "sam2_hiera_t.yaml"
         self.predictor = build_sam2_camera_predictor(model_cfg, sam2_checkpoint)
 
+        self.activate = True
+
         time.sleep(2)
+
+    def order_callback(self, request, response):
+        self.get_logger().info(f"Follow order 수신 : {request.order}")
+        if request.order == 'follow_on':
+            self.activate = True
+            response.accepted = True
+        elif request.order == 'follow_off':
+            self.activate = False
+            response.accepted = True
+        elif request.order == 'follow_reset':
+            self.activate = True
+            self.if_init = False
+            self.msg.linear.x = 0.0
+            self.msg.angular.z = 0.0
+            self.found_customer = False
+            response.accepted = True
+        else:
+            response.accepted = False
+        self.get_logger().info(f"Follow order response : {response.accepted}")
+        return response
+        
 
     async def execute_callback(self, goal_handle):
         self.get_logger().info('Executing goal...')
-        
+        # self.activate = True
+
         # 동작.
         max_spin_speed = 0.5
         self.if_init = False
         target_bbox = [0, 0, 0, 0]
-        lx = 0.0
-        az = 0.0
+        self.msg.linear.x = 0.0
+        self.msg.angular.z = 0.0
         count = 0
         self.found_customer = False
         while True:
-            if goal_handle.is_cancel_requested:
-                goal_handle.canceled()
-                self.get_logger().info('cancel')
-                return Follow.Result()
+            if self.activate == False:
+                time.sleep(0.5)
+                continue
             self.socket_connect.new_frame = False
             print("ACK (이미지 요청) 전송")
             self.socket_connect.data_send(0x04, b"ACK")
@@ -122,8 +160,7 @@ class FollowActionServer(Node):
                                 frame_idx=ann_frame_idx, obj_id=ann_obj_id, bbox=bbox
                             )
                     else:
-                        # cmd_vel_pub_node.stop = True
-                        if count % 1 == 0:
+                        if count % 2 == 0:
                             print("SAM2 동작")
                             out_obj_ids, out_mask_logits = self.predictor.track(frame)
                             print("SAM2 완료")
@@ -134,9 +171,6 @@ class FollowActionServer(Node):
                             out_obj_ids = prev_out_obj_ids
                             out_mask_logits = prev_out_mask_logits
                         count += 1
-
-                        # cmd_vel_pub_node.stop = False
-                        # print("SAM2 동작 끝")
                             
                         all_mask = np.zeros((height, width, 1), dtype=np.uint8)
                         print(len(out_obj_ids))
@@ -222,25 +256,27 @@ class FollowActionServer(Node):
                                 break
                         self.socket_connect.new_danger = False
 
-                        # if self.socket_connect.danger:               # 충돌 위험으로 예상되면 정지
-                        #     cmd_vel_pub_node.lx = -(max_depth_speed/2)
-                        #     cmd_vel_pub_node.az = 0.0
-                        # else:
-                        #     if lx != 0.0 or az != 0.0:
-                        #         cmd_vel_pub_node.lx = lx
-                        #         cmd_vel_pub_node.az = az
-                        #     else:
-                        #         cmd_vel_pub_node.lx = 0.0
-                        #         cmd_vel_pub_node.az = 0.0
-                #     else:
-                #         cmd_vel_pub_node.lx = 0.0
-                #         if cmd_vel_pub_node.az > 0.0:
-                #             cmd_vel_pub_node.az = max_spin_speed
-                #         elif cmd_vel_pub_node.az < 0.0:
-                #             cmd_vel_pub_node.az = -max_spin_speed
-                #         else:
-                #             cmd_vel_pub_node.az = max_spin_speed
-                # cmd_vel_pub_node.move_forward()        
+                        if self.socket_connect.danger:               # 충돌 위험으로 예상되면 정지
+                            lx = -(max_depth_speed/2)
+                            az = 0.0
+                        else:
+                            if lx != 0.0 or az != 0.0:
+                                lx = lx
+                                az = az
+                            else:
+                                lx = 0.0
+                                az = 0.0
+                    else:
+                        lx = 0.0
+                        if az > 0.0:
+                            az = max_spin_speed
+                        elif az < 0.0:
+                            az = -max_spin_speed
+                        else:
+                            az = max_spin_speed
+                self.msg.linear.x = lx
+                self.msg.angular.z = az
+                self.cmd_vel_publisher.publish(self.msg)        
                 
                 cv2.imshow("Camera", frame)
 
@@ -249,10 +285,16 @@ class FollowActionServer(Node):
              
 
 
-        # feedback_msg = Follow.Feedback()
-        # # feedback_msg.string
+            feedback_msg = Follow.Feedback()
+            feedback_msg.feedback = 'dump'
 
+            goal_handle.publish_feedback(feedback_msg)
 
+        goal_handle.succeed()
+
+        result = Follow.Result()
+        result.result = 'dump'
+        return result
 
 
 
@@ -272,14 +314,6 @@ class FollowActionServer(Node):
         # result = Fibonacci.Result()
         # result.sequence = feedback_msg.sequence
         # return result
-
-    def goal_callback(self, goal_request):
-        self.get_logger().info('Goal received.')
-        return rclpy.action.GoalResponse.ACCEPT
-    
-    def cancel_callback(self, cancel_request):
-        self.get_logger().info('Cancel request received.')
-        return rclpy.action.CancelResponse.ACCEPT
 
 
 class Socket_Connect():
