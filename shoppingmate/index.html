@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+
+<!-- roslib -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/roslib@1/build/roslib.min.js"></script>
+<script src="node_modules/roslib/build/roslib.js"></script>
+
+
+<script type="text/javascript" >
+
+    var ros = new ROSLIB.Ros({  //ros bridge server와 연동하기 위하여 어디로 접속할지
+        url : 'ws://localhost:9090'
+    });
+
+    // If there is an error on the backend, an 'error' emit will be emitted.
+    ros.on('error', function(error) {
+      document.getElementById('connecting').style.display = 'none';
+      document.getElementById('connected').style.display = 'none';
+      document.getElementById('closed').style.display = 'none';
+      document.getElementById('error').style.display = 'inline';
+      console.log('Error connecting to websocket server: ', error);
+      
+    });
+
+    // Find out exactly when we made a connection.
+    ros.on('connection', function() {
+      console.log('Connected to websocket server.');
+      document.getElementById('connecting').style.display = 'none';
+      document.getElementById('error').style.display = 'none';
+      document.getElementById('closed').style.display = 'none';
+      document.getElementById('connected').style.display = 'inline';
+    });
+
+    ros.on('close', function() {
+      console.log('Connection to websocket server closed.');
+      document.getElementById('connecting').style.display = 'none';
+      document.getElementById('connected').style.display = 'none';
+      document.getElementById('closed').style.display = 'inline';
+    });
+
+    
+
+    
+    // [Cart] Calling a service 
+    // -----------------
+  
+    var CallCartClient = new ROSLIB.Service({
+      ros : ros,
+      name : '/i6robotics_navigation_server', //'/turtle1/teleport_absolute', //서비스 명
+      serviceType : 'i6robotics_control_msgs/srv/NavOrderSrv' //메시지타입
+    });
+    var request = new ROSLIB.ServiceRequest({ //리퀘스트 메시지 내용
+      goal_pose: { 
+            position: {x: -0.16, y: -0.0, z: 0.0 }, 
+            orientation: {x: 0.0, y: 0.0, z: 0.0, w: 0.999}
+        }
+    });
+    var call_cart_flag = false
+    var timeout = 3000; // 타임아웃 시간 (3초)
+    var timeoutId = setTimeout(function() {
+      console.warn('Service call timed out! No response received within ' + timeout / 1000 + ' seconds.');
+      call_cart_flag = true
+    }, timeout); // 5초 후에 경고 출력
+    
+    
+    /**
+    CallCartClient.callService(request, function(result) {
+      console.log('Result for service call on '
+        + CallCartClient.name
+        + ': '
+        + result.result);
+        // result.result가 'Goal Sent to Client' 가 아니라면(혹은 뭔가 안온다던가) 문제있는 상태임!
+    }); **/
+    CallCartClient.callService(request, function(result) {
+        clearTimeout(timeoutId); // 응답이 오면 타임아웃을 취소
+        console.log('Result for service call on '
+            + CallCartClient.name
+            + ': '
+            + result.result);
+
+        // result.result가 'Goal Sent to Client'가 아니라면 경고 출력
+        if (result.result !== 'Goal Sent to Client') {
+            console.warn('Warning: Unexpected result: ' + result.result);
+       
+          }
+    });
+
+      
+    // ---------------------- 어디까지 온건지
+    var CallCart_feedback_listener = new ROSLIB.Topic({
+      ros : ros,
+      name : '/i6robotics_navigation_feedback', //토픽이름
+      messageType : 'i6robotics_control_msgs/msg/NavOrderFeedback'
+    });
+
+    var lastExecutionTime = Date.now();
+    CallCart_feedback_listener.subscribe(function(message) {
+      //consol.log (JSON.stringify(message));
+      var now = Date.now();
+      
+    
+      // 1초마다만 실행되도록 제한
+      if (now - lastExecutionTime >= 100) { 
+          lastExecutionTime = now; // 마지막 실행 시간을 업데이트
+          
+          // 메시지 처리
+          console.log('Remaining Distance : ' + CallCart_feedback_listener.name + ': ' + message.distance_remaining + " m");
+          console.log('Currnet location : ' + CallCart_feedback_listener.name + ': [' + message.current_pose.pose.position.x + ','+ message.current_pose.pose.position.y + ']');
+          
+      }
+      //CallCart_feedback_listener.unsubscribe(); //subscribe 해제
+    });
+    
+
+
+    // test용
+    /**
+    setTimeout(() => {
+      var request = new ROSLIB.ServiceRequest({ //리퀘스트 메시지 내용
+        goal_pose: { 
+              position: {x: -0.16, y: -1.0, z: 0.0 }, 
+              orientation: {x: 0.0, y: 0.0, z: 0.0, w: 0.999}
+          }
+        });
+        CallCartClient.callService(request, function(result) {
+          console.log('Result for service call on '
+            + CallCartClient.name
+            + ': '
+            + result.result);
+        });
+
+        var CallCart_feedback_listener = new ROSLIB.Topic({
+        ros : ros,
+        name : '/i6robotics_navigation_feedback', //토픽이름
+        messageType : 'i6robotics_control_msgs/msg/NavOrderFeedback'
+      });
+
+      CallCart_feedback_listener.subscribe(function(message) {
+        //consol.log (JSON.stringify(message));
+        console.log('Remaining Distance : ' + CallCart_feedback_listener.name + ': ' + message.distance_remaining);
+        console.log('Currnet location : ' + CallCart_feedback_listener.name + ': [' + message.current_pose.pose.position.x + ','+ message.current_pose.pose.position.x + ']');
+        CallCart_feedback_listener.unsubscribe(); //subscribe 해제
+      });
+      }, 2000); **/
+    
+
+    console.log("done")
+
+
+     
+</script>
+</head>
+
+<body>
+  <h1>ActionClient Example</h1>
+  <p>Run the following commands in the terminal then refresh this page. Check the JavaScript
+    console for the output.</p>
+  <ol>
+    <li><tt>ros2 launch rosbridge_server rosbridge_websocket_launch.xml</tt></li>
+    <li><tt>ros2 run i6robotics_control i6robotics_navigation_server </tt></li>
+  </ol>
+  <div id="statusIndicator">
+    <p id="connecting">
+      Connecting to rosbridge...
+    </p>
+    <p id="connected" style="color:#00D600; display:none">
+      Connected
+    </p>
+    <p id="error" style="color:#FF0000; display:none">
+      Error in the backend!
+    </p>
+    <p id="closed" style="display:none">
+      Connection closed.
+    </p>
+  </div>
+</body>
+</html>
